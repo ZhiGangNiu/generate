@@ -55,19 +55,18 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/seckill?useUnicode=true&allowPublicKeyRetrieval=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://192.168.0.228:6301/hwxt_project?useUnicode=true&allowPublicKeyRetrieval=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("zero");
-        dsc.setPassword("zero");
+        dsc.setUsername("root");
+        dsc.setPassword("HW415as*df");
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-//        pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.xxxx.seckill")
+        pc.setParent("com.backend.file")
                 .setEntity("pojo")
-                .setMapper("mapper")
+                .setMapper("mapper.project")
                 .setService("service")
                 .setServiceImpl("service.impl")
                 .setController("controller");
@@ -93,7 +92,7 @@ public class CodeGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                return projectPath + "/src/main/resources/mapper/hwxtproject/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         /*
